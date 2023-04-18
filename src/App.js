@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import './App.css';
+// import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
@@ -23,7 +23,7 @@ const AppLayout = () => {
             <Header />
             {/* Outlet where we have to fill diff components accordingly. eg. body, about, contact */}
             <Outlet />
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

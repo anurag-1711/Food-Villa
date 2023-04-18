@@ -1,5 +1,3 @@
-import '../App.css'
-
 const Shimmer = () => {
     return (
         <div className="restaurant-list">

@@ -2,14 +2,9 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import useOnline from "../utils/useOnline";
 
-const loggedInUser = function () {
-    // API call to check authentication
-    return true;
-}
-
 const Title = () => (
     <Link to="/">
-        <img className='logo'
+        <img className="h-28 p-2"
             alt="Logo"
             src="http://lh3.googleusercontent.com/Em7AHf7XBH_RtGfCBVXz9RH8SM_pHkj3xPP-yd3cRguY1_Jc8fmqgx6WxnvGVyPV5xs5gL3HCD0FCuv6Xo4CwoY6ak4"
         />
@@ -22,26 +17,28 @@ const Header = () => {
     const isOnline = useOnline();
 
     return (
-        <div className='header'>
+        <div className='flex justify-between bg-rose-50 shadow-lg'>
             <Title />
-            <div className='nav-items'>
-                <ul>
-                    <Link to="/"><li>Home</li></Link>
-                    <Link to="/about"><li>About</li></Link>
-                    <Link to="/contact"><li>Contact</li></Link>
-                    <Link to="/cart"><li>Cart</li></Link>
-                    <Link to="/instamart"><li>Instamart</li></Link>
+            <div className=''>
+                <ul className="flex py-12">
+                    <Link to="/" className="px-2"><li>Home</li></Link>
+                    <Link to="/about" className="px-2"><li>About</li></Link>
+                    <Link to="/contact" className="px-2"><li>Contact</li></Link>
+                    <Link to="/cart" className="px-2"><li>Cart</li></Link>
+                    <Link to="/instamart" className="px-2"><li>Instamart</li></Link>
                 </ul>
             </div>
-            <h1>{isOnline ? "✅" : "❌"}</h1>
-            {(isLoggedIn ?
-                <button onClick={function () {
-                    setIsLoggedIn(false);
-                }}>Logout</button>
-                :
-                <button onClick={function () {
-                    setIsLoggedIn(true);
-                }}>Login</button>)}
+            <h1 className="py-12 text-xl">{isOnline ? "✅" : "❌"}</h1>
+            {
+                (isLoggedIn ?
+                    <button className="px-8" onClick={function () {
+                        setIsLoggedIn(false);
+                    }}>Logout</button>
+                    :
+                    <button className="px-8" onClick={function () {
+                        setIsLoggedIn(true);
+                    }}>Login</button>)
+            }
         </div>
     )
 }

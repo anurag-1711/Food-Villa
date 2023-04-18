@@ -11,14 +11,14 @@ class Profile extends React.Component {
             },
             count: 0
         })
-        console.log("Child - constructor" + this.props.name);
+        // console.log("Child - constructor" + this.props.name);
     }
 
     async componentDidMount() {
         const data = await fetch('https://api.github.com/users/anurag-1711');
         const json = await data.json();
 
-        console.log(json);
+        // console.log(json);
 
         this.setState({
             userInfo: {
@@ -29,7 +29,7 @@ class Profile extends React.Component {
         })
 
 
-        console.log("Child -  componentDidMount" + this.props.name);
+        // console.log("Child -  componentDidMount" + this.props.name);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -41,21 +41,21 @@ class Profile extends React.Component {
         //     console.log("Anurag");
         // }, 1000);
 
-        console.log("ComponentDidUpdate");
+        // console.log("ComponentDidUpdate");
     }
 
     componentWillUnmount() {
         // clearInterval(this.timer);
-        console.log("ComponentWillUnmount");
+        // console.log("ComponentWillUnmount");
     }
 
     render() {
-        console.log("Child - render" + this.props.name);
+        // console.log("Child - render" + this.props.name);
 
         return (
             <>
-                <img src={this.state.userInfo.avatar_url} />
-                <h2>Profile Class Component by {this.state.userInfo.name}</h2>
+                <img className='w-56 rounded-full m-auto' src={this.state.userInfo.avatar_url} />
+                {/* <h2>Profile Class Component by {this.state.userInfo.name}</h2> */}
             </>
         );
     }

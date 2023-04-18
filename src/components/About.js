@@ -7,25 +7,25 @@ class About extends React.Component {
     constructor(props) {
         super(props);
         
-        console.log("Parent - constructor");
+        // console.log("Parent - constructor");
     }
 
     componentDidMount() {
         // Best place to make API call
 
-        console.log("Parent - componentDidMount");
+        // console.log("Parent - componentDidMount");
     }
 
     render() {
-        console.log("Parent - render");
+        // console.log("Parent - render");
         return (
-            <div>
-                <h1>About Us</h1>
-                <p>
-                    Hi, this is Anurag.
+            <div className='text-center bg-rose-50 '>
+                <h1 className='text-4xl font-bold m-4'>About Us</h1>
+                <p className='font-sans m-2'>
+                    Hi, I am Anurag, an undergraduate with a focus on React Development.
                 </p>
                 <Profile name={" First Child"} />
-                <ProfileFunctionalComponent />
+                {/* <ProfileFunctionalComponent /> */}
             </div>
         );
     }
