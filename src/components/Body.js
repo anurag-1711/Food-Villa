@@ -1,17 +1,18 @@
 // import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
 
     const [allRestaurants, setAllRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-
     const [searchText, setSearchText] = useState(''); // returns = [variable , function to update the variable]
+    const { user, setUser } = useContext(UserContext);
 
     useEffect(function () {
         getRestaurants();
@@ -40,6 +41,7 @@ const Body = () => {
     // if (filteredRestaurants?.length == 0) {
     //     return <h1>No restaurants matched your search !!</h1>
     // }
+
 
     return allRestaurants.length === 0 ?
         (
@@ -70,6 +72,18 @@ const Body = () => {
                     >
                         Search
                     </button>
+
+                    <input
+                        type="text"
+                        className="p-1 m-1"
+                        value={user.name}
+                        onChange={(e) => {
+                            setUser({
+                                ...user,
+                                name: e.target.value
+                            });
+                        }}
+                    ></ input>
                 </div>
                 <div className='restaurant-list flex flex-wrap justify-between'>
                     { // write logic for no restaurants found

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 const Title = () => (
     <Link to="/">
@@ -15,6 +16,9 @@ const Header = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const isOnline = useOnline();
+
+    const { user } = useContext(UserContext);
+    console.log(user);
 
     return (
         <div className='flex justify-between bg-rose-50 shadow-lg'>
@@ -33,12 +37,14 @@ const Header = () => {
                 (isLoggedIn ?
                     <button className="px-8" onClick={function () {
                         setIsLoggedIn(false);
-                    }}>Logout</button>
+                    }}>Logout {user.name}</button>
                     :
                     <button className="px-8" onClick={function () {
                         setIsLoggedIn(true);
-                    }}>Login</button>)
+                    }}>Login {user.name}</button>)
             }
+
+            {/* <div className="py-12 text-xl">{user.name}</div> */}
         </div>
     )
 }

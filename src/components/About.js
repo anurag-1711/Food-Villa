@@ -2,11 +2,12 @@ import { Outlet } from 'react-router-dom';
 import Profile from './ProfileClass';
 import ProfileFunctionalComponent from './Profile';
 import React from 'react';
+import UserContext from '../utils/UserContext';
 
 class About extends React.Component {
     constructor(props) {
         super(props);
-        
+
         // console.log("Parent - constructor");
     }
 
@@ -21,12 +22,17 @@ class About extends React.Component {
         return (
             <div className='text-center bg-rose-50 '>
                 <h1 className='text-4xl font-bold m-4'>About Us</h1>
+                {/* <h4>Hello</h4> */}
+                <UserContext.Consumer>
+                    {({ user }) => <h4 className='font-bold'>{user.name}</h4>}
+                </UserContext.Consumer>
+
                 <p className='font-sans m-2'>
-                    Hi, I am Anurag, an undergraduate with a focus on React Development.
+                    Hi, I am Anurag, an undergraduate with a focus on React Development. 
                 </p>
                 <Profile name={" First Child"} />
                 {/* <ProfileFunctionalComponent /> */}
-            </div>
+            </div >
         );
     }
 }
