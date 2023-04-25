@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const Title = () => (
     <Link to="/">
-        <img className="h-28 p-2"
+        <img data-testid="logo" className="h-28 p-2"
             alt="Logo"
             src="http://lh3.googleusercontent.com/Em7AHf7XBH_RtGfCBVXz9RH8SM_pHkj3xPP-yd3cRguY1_Jc8fmqgx6WxnvGVyPV5xs5gL3HCD0FCuv6Xo4CwoY6ak4"
         />
@@ -33,10 +33,10 @@ const Header = () => {
                     <Link to="/about" className="px-2"><li>About</li></Link>
                     <Link to="/contact" className="px-2"><li>Contact</li></Link>
                     <Link to="/instamart" className="px-2"><li>Instamart</li></Link>
-                    <Link to="/cart" className="px-2"><li>Cart - {cartItems.length}</li></Link>
+                    <Link to="/cart" className="px-2"><li data-testid="cart">Cart - {cartItems.length}</li></Link>
                 </ul>
             </div>
-            <h1 className="py-12 text-xl">{isOnline ? "✅" : "❌"}</h1>
+            <h1 data-testid="online-status" className="py-12 text-xl">{isOnline ? "✅" : "❌"}</h1>
             {
                 (isLoggedIn ?
                     <button className="px-8" onClick={function () {

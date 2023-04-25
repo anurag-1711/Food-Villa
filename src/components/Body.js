@@ -50,6 +50,7 @@ const Body = () => {
             <>
                 <div className="search-container p-5 bg-rose-50 my-5">
                     <input
+                        data-testid='search-input'
                         type="text"
                         className="focus:bg-inherit p-1 m-1"
                         placeholder="Search"
@@ -60,6 +61,7 @@ const Body = () => {
                     />
 
                     <button
+                        data-testid="search-btn"
                         className="p-1 m-1 bg-amber-900 hover:bg-amber-800 text-white rounded-md"
                         // style={{
                         //     backgroundColor: "beige",
@@ -85,7 +87,7 @@ const Body = () => {
                         }}
                     ></ input>
                 </div>
-                <div className='restaurant-list flex flex-wrap justify-between'>
+                <div className='restaurant-list flex flex-wrap justify-between' data-testid='res-list'>
                     { // write logic for no restaurants found
 
                         filteredRestaurants.length === 0 ? <h1>No Restaurants found</h1> : filteredRestaurants.map((restaurant) => {
