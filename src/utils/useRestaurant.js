@@ -17,7 +17,7 @@ const useRestaurant = (id) => {
         setRestaurant(json?.data?.cards[0]?.card?.card?.info);
         setMenu(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
         // console.log(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
-        // console.log(menu);
+        // console.log(menu); data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[0]
     }
     return [restaurant, menu];
 };
